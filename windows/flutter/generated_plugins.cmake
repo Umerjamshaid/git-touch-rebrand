@@ -4,6 +4,7 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   maps_launcher
+  package_info_plus_windows
   sentry_flutter
   share_plus_windows
   url_launcher_windows
