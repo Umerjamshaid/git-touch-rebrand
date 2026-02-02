@@ -52,7 +52,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md).
 ## Contributors
 
 <a href="https://github.com/git-touch/git-touch/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=git-touch/git-touch-rebrand" />
+  <img src="https://contrib.rocks/image?repo=git-touch/git-touch" />
 </a>
 
 ## License
