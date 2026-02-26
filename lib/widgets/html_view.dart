@@ -18,16 +18,57 @@ class HtmlView extends StatefulWidget {
 class _HtmlViewState extends State<HtmlView> {
   late Timer timer;
   double? height;
-  late WebViewController controller;
+  late final WebViewController controller;
   var loaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x00000000))
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) {
+            // Update loading bar.
+          },
+          onPageStarted: (String url) {},
+          onPageFinished: (String url) async {
+            timer.cancel();
+            updateHeight();
+          },
+          onWebResourceError: (WebResourceError error) {},
+          onNavigationRequest: (NavigationRequest request) {
+            if (loaded) {
+              launchStringUrl(request.url);
+              return NavigationDecision.prevent;
+            } else {
+              loaded = true;
+              return NavigationDecision.navigate;
+            }
+          },
+        ),
+      );
+
+    final uri = Uri.dataFromString(
+      widget.html,
+      mimeType: 'text/html',
+      encoding: Encoding.getByName('utf-8'),
+    );
+    controller.loadRequest(Uri.parse(uri.toString()));
+
+    timer = Timer.periodic(const Duration(milliseconds: 1000), (t) {
+      updateHeight();
+    });
+  }
 
   updateHeight() async {
     final value = await controller
-        .runJavascriptReturningResult('document.documentElement.scrollHeight;');
+        .runJavaScriptReturningResult('document.documentElement.scrollHeight;');
     // print(value);
     if (mounted) {
       setState(() {
-        height = double.parse(value);
+        height = double.parse(value.toString());
       });
     }
   }
@@ -48,28 +89,8 @@ class _HtmlViewState extends State<HtmlView> {
     return SizedBox(
       height: height ??
           1, // must be integer(android). 0 would return the wrong height on page finished.
-      child: WebView(
-        initialUrl: uri.toString(),
-        javascriptMode: JavascriptMode.unrestricted,
-        onWebViewCreated: (c) async {
-          controller = c;
-          timer = Timer.periodic(const Duration(milliseconds: 1000), (t) {
-            updateHeight();
-          });
-        },
-        onPageFinished: (some) async {
-          timer.cancel();
-          updateHeight();
-        },
-        navigationDelegate: (request) {
-          if (loaded) {
-            launchStringUrl(request.url); // TODO:
-            return NavigationDecision.prevent;
-          } else {
-            loaded = true;
-            return NavigationDecision.navigate;
-          }
-        },
+      child: WebViewWidget(
+        controller: controller,
       ),
     );
   }

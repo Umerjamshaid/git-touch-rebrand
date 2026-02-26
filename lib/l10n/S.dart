@@ -948,7 +948,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'edited the pages: {pageNames}'**
-  String editedPages(String pageAction, Object pageNames);
+  String editedPages(String pageNames);
 
   /// new permissions were accepted for
   ///

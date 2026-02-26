@@ -463,7 +463,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String editedPages(String pageAction, Object pageNames) {
+  String editedPages(String pageNames) {
     return 'edited the pages: $pageNames';
   }
 
