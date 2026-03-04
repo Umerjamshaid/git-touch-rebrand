@@ -5,8 +5,7 @@ part 'account.g.dart';
 
 @freezed
 class Account with _$Account {
-  @JsonSerializable(includeIfNull: false)
-  factory Account({
+  const factory Account({
     required String platform,
     required String domain,
     required String token,

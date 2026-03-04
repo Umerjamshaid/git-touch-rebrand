@@ -20,7 +20,7 @@ class ActionItem {
       ActionItem(
         text: 'Share',
         onTap: (_) {
-          Share.share(url!);
+          SharePlus.instance.share(url! as ShareParams);
         },
       ),
       ActionItem(
@@ -51,7 +51,7 @@ class ActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeModel>(context);
     return CupertinoButton(
-      minSize: 0,
+      minimumSize: const Size(0, 0),
       padding: EdgeInsets.zero,
       onPressed: () async {
         await theme.showActions(context, items);

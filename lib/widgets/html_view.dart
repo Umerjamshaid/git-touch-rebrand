@@ -39,7 +39,7 @@ class _HtmlViewState extends State<HtmlView> {
           },
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
-            if (loaded) {
+            if (request.url.startsWith('http')) {
               launchStringUrl(request.url);
               return NavigationDecision.prevent;
             } else {
@@ -50,12 +50,7 @@ class _HtmlViewState extends State<HtmlView> {
         ),
       );
 
-    final uri = Uri.dataFromString(
-      widget.html,
-      mimeType: 'text/html',
-      encoding: Encoding.getByName('utf-8'),
-    );
-    controller.loadRequest(Uri.parse(uri.toString()));
+    controller.loadHtmlString(widget.html);
 
     timer = Timer.periodic(const Duration(milliseconds: 1000), (t) {
       updateHeight();
@@ -81,11 +76,6 @@ class _HtmlViewState extends State<HtmlView> {
 
   @override
   Widget build(BuildContext context) {
-    final uri = Uri.dataFromString(
-      widget.html,
-      mimeType: 'text/html',
-      encoding: Encoding.getByName('utf-8'),
-    );
     return SizedBox(
       height: height ??
           1, // must be integer(android). 0 would return the wrong height on page finished.

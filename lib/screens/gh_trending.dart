@@ -10,7 +10,7 @@ import 'package:git_touch/widgets/user_item.dart';
 import 'package:github_trending/github_trending.dart';
 
 class GhTrendingScreen extends StatelessWidget {
-  static final trending = GithubTrending(prefix: 'https://gtrend.yapie.me');
+  static final trending = GithubTrending(prefix: 'https://ghapi.huchen.dev');
 
   @override
   Widget build(BuildContext context) {

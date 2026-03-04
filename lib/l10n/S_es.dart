@@ -557,7 +557,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String securityAlertInvolvingPackage(
-      String affectedPackageName, String affectedRange, String action) {
+    String affectedPackageName,
+    String affectedRange,
+    String action,
+  ) {
     return 'Security alert involving the package $affectedPackageName between versions $affectedRange was ${action}ed';
   }
 

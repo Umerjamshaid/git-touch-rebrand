@@ -10,7 +10,7 @@ class ActionEntry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-      minSize: 0,
+      minimumSize: const Size(0, 0),
       padding: EdgeInsets.zero,
       onPressed: () {
         if (onTap != null) onTap!();
