@@ -247,11 +247,12 @@ class _HomeState extends State<Home> {
 
     final navigationItems = _buildNavigationItems(auth.activeAccount!.platform);
 
-    return WillPopScope(
-      onWillPop: () async {
-        return !(await getNavigatorKey(auth.activeTab)
-            .currentState
-            ?.maybePop())!;
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, dynamic result) async {
+        if (!didPop) {
+          await getNavigatorKey(auth.activeTab).currentState?.maybePop();
+        }
       },
       child: CupertinoTabScaffold(
         tabBuilder: (context, index) {
