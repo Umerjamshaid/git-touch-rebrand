@@ -76,7 +76,7 @@ import 'S_zh.dart';
 /// property.
 abstract class AppLocalizations {
   AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -99,11 +99,11 @@ abstract class AppLocalizations {
   /// of delegates is preferred or required.
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
@@ -125,7 +125,7 @@ abstract class AppLocalizations {
     Locale('si'),
     Locale('zh'),
     Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
-    Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant')
+    Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
   ];
 
   /// The News tab
@@ -1099,7 +1099,10 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Security alert involving the package {affectedPackageName} between versions {affectedRange} was {action}ed'**
   String securityAlertInvolvingPackage(
-      String affectedPackageName, String affectedRange, String action);
+    String affectedPackageName,
+    String affectedRange,
+    String action,
+  );
 
   /// Security advisory
   ///
@@ -1137,22 +1140,22 @@ class _AppLocalizationsDelegate
 
   @override
   bool isSupported(Locale locale) => <String>[
-        'ca',
-        'de',
-        'en',
-        'es',
-        'fr',
-        'hi',
-        'hu',
-        'id',
-        'ja',
-        'nb',
-        'nl',
-        'pt',
-        'ru',
-        'si',
-        'zh'
-      ].contains(locale.languageCode);
+    'ca',
+    'de',
+    'en',
+    'es',
+    'fr',
+    'hi',
+    'hu',
+    'id',
+    'ja',
+    'nb',
+    'nl',
+    'pt',
+    'ru',
+    'si',
+    'zh',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -1228,8 +1231,9 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.',
+  );
 }
