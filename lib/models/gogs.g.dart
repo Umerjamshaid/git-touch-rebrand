@@ -7,23 +7,23 @@ part of 'gogs.dart';
 // **************************************************************************
 
 GogsUser _$GogsUserFromJson(Map<String, dynamic> json) => GogsUser()
-  ..id = json['id'] as int?
+  ..id = (json['id'] as num?)?.toInt()
   ..username = json['username'] as String?
   ..fullName = json['full_name'] as String?
   ..avatarUrl = json['avatar_url'] as String?
   ..email = json['email'] as String?;
 
 Map<String, dynamic> _$GogsUserToJson(GogsUser instance) => <String, dynamic>{
-      'id': instance.id,
-      'username': instance.username,
-      'full_name': instance.fullName,
-      'avatar_url': instance.avatarUrl,
-      'email': instance.email,
-    };
+  'id': instance.id,
+  'username': instance.username,
+  'full_name': instance.fullName,
+  'avatar_url': instance.avatarUrl,
+  'email': instance.email,
+};
 
 GogsRepository _$GogsRepositoryFromJson(Map<String, dynamic> json) =>
     GogsRepository()
-      ..id = json['id'] as int?
+      ..id = (json['id'] as num?)?.toInt()
       ..fullName = json['full_name'] as String?
       ..private = json['private'] as bool?
       ..owner = json['owner'] == null
@@ -38,10 +38,10 @@ GogsRepository _$GogsRepositoryFromJson(Map<String, dynamic> json) =>
       ..updatedAt = json['updated_at'] == null
           ? null
           : DateTime.parse(json['updated_at'] as String)
-      ..starsCount = json['stars_count'] as int?
-      ..forksCount = json['forks_count'] as int?
+      ..starsCount = (json['stars_count'] as num?)?.toInt()
+      ..forksCount = (json['forks_count'] as num?)?.toInt()
       ..website = json['website'] as String?
-      ..watchersCount = json['watchers_count'] as int?;
+      ..watchersCount = (json['watchers_count'] as num?)?.toInt();
 
 Map<String, dynamic> _$GogsRepositoryToJson(GogsRepository instance) =>
     <String, dynamic>{
@@ -61,7 +61,7 @@ Map<String, dynamic> _$GogsRepositoryToJson(GogsRepository instance) =>
     };
 
 GogsOrg _$GogsOrgFromJson(Map<String, dynamic> json) => GogsOrg()
-  ..id = json['id'] as int?
+  ..id = (json['id'] as num?)?.toInt()
   ..username = json['username'] as String?
   ..fullName = json['full_name'] as String?
   ..avatarUrl = json['avatar_url'] as String?
@@ -70,56 +70,50 @@ GogsOrg _$GogsOrgFromJson(Map<String, dynamic> json) => GogsOrg()
   ..website = json['website'] as String?;
 
 Map<String, dynamic> _$GogsOrgToJson(GogsOrg instance) => <String, dynamic>{
-      'id': instance.id,
-      'username': instance.username,
-      'full_name': instance.fullName,
-      'avatar_url': instance.avatarUrl,
-      'description': instance.description,
-      'location': instance.location,
-      'website': instance.website,
-    };
+  'id': instance.id,
+  'username': instance.username,
+  'full_name': instance.fullName,
+  'avatar_url': instance.avatarUrl,
+  'description': instance.description,
+  'location': instance.location,
+  'website': instance.website,
+};
 
-GogsTree _$GogsTreeFromJson(Map<String, dynamic> json) => GogsTree(
-      type: json['type'] as String,
-      name: json['name'] as String,
-    )
+GogsTree _$GogsTreeFromJson(Map<String, dynamic> json) =>
+    GogsTree(type: json['type'] as String, name: json['name'] as String)
       ..path = json['path'] as String?
-      ..size = json['size'] as int?
+      ..size = (json['size'] as num?)?.toInt()
       ..downloadUrl = json['download_url'] as String?;
 
 Map<String, dynamic> _$GogsTreeToJson(GogsTree instance) => <String, dynamic>{
-      'type': instance.type,
-      'name': instance.name,
-      'path': instance.path,
-      'size': instance.size,
-      'download_url': instance.downloadUrl,
-    };
+  'type': instance.type,
+  'name': instance.name,
+  'path': instance.path,
+  'size': instance.size,
+  'download_url': instance.downloadUrl,
+};
 
-GogsBlob _$GogsBlobFromJson(Map<String, dynamic> json) => GogsBlob(
-      type: json['type'] as String,
-      name: json['name'] as String,
-    )
+GogsBlob _$GogsBlobFromJson(Map<String, dynamic> json) =>
+    GogsBlob(type: json['type'] as String, name: json['name'] as String)
       ..path = json['path'] as String?
-      ..size = json['size'] as int?
+      ..size = (json['size'] as num?)?.toInt()
       ..downloadUrl = json['download_url'] as String?
       ..content = json['content'] as String?;
 
 Map<String, dynamic> _$GogsBlobToJson(GogsBlob instance) => <String, dynamic>{
-      'type': instance.type,
-      'name': instance.name,
-      'path': instance.path,
-      'size': instance.size,
-      'download_url': instance.downloadUrl,
-      'content': instance.content,
-    };
+  'type': instance.type,
+  'name': instance.name,
+  'path': instance.path,
+  'size': instance.size,
+  'download_url': instance.downloadUrl,
+  'content': instance.content,
+};
 
 GogsBranch _$GogsBranchFromJson(Map<String, dynamic> json) =>
     GogsBranch()..name = json['name'] as String?;
 
 Map<String, dynamic> _$GogsBranchToJson(GogsBranch instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-    };
+    <String, dynamic>{'name': instance.name};
 
 GogsCommit _$GogsCommitFromJson(Map<String, dynamic> json) => GogsCommit()
   ..author = json['author'] == null
@@ -148,7 +142,8 @@ GogsCommitDetail _$GogsCommitDetailFromJson(Map<String, dynamic> json) =>
       ..committer = json['committer'] == null
           ? null
           : GogsCommitAuthor.fromJson(
-              json['committer'] as Map<String, dynamic>);
+              json['committer'] as Map<String, dynamic>,
+            );
 
 Map<String, dynamic> _$GogsCommitDetailToJson(GogsCommitDetail instance) =>
     <String, dynamic>{
@@ -161,8 +156,9 @@ GogsCommitAuthor _$GogsCommitAuthorFromJson(Map<String, dynamic> json) =>
     GogsCommitAuthor()
       ..name = json['name'] as String?
       ..email = json['email'] as String?
-      ..date =
-          json['date'] == null ? null : DateTime.parse(json['date'] as String);
+      ..date = json['date'] == null
+          ? null
+          : DateTime.parse(json['date'] as String);
 
 Map<String, dynamic> _$GogsCommitAuthorToJson(GogsCommitAuthor instance) =>
     <String, dynamic>{
@@ -172,7 +168,7 @@ Map<String, dynamic> _$GogsCommitAuthorToJson(GogsCommitAuthor instance) =>
     };
 
 GogsIssue _$GogsIssueFromJson(Map<String, dynamic> json) => GogsIssue()
-  ..number = json['number'] as int?
+  ..number = (json['number'] as num?)?.toInt()
   ..state = json['state'] as String?
   ..title = json['title'] as String?
   ..body = json['body'] as String?
@@ -188,25 +184,25 @@ GogsIssue _$GogsIssueFromJson(Map<String, dynamic> json) => GogsIssue()
   ..updatedAt = json['updated_at'] == null
       ? null
       : DateTime.parse(json['updated_at'] as String)
-  ..comments = json['comments'] as int?;
+  ..comments = (json['comments'] as num?)?.toInt();
 
 Map<String, dynamic> _$GogsIssueToJson(GogsIssue instance) => <String, dynamic>{
-      'number': instance.number,
-      'state': instance.state,
-      'title': instance.title,
-      'body': instance.body,
-      'user': instance.user,
-      'labels': instance.labels,
-      'created_at': instance.createdAt?.toIso8601String(),
-      'updated_at': instance.updatedAt?.toIso8601String(),
-      'comments': instance.comments,
-    };
+  'number': instance.number,
+  'state': instance.state,
+  'title': instance.title,
+  'body': instance.body,
+  'user': instance.user,
+  'labels': instance.labels,
+  'created_at': instance.createdAt?.toIso8601String(),
+  'updated_at': instance.updatedAt?.toIso8601String(),
+  'comments': instance.comments,
+};
 
 GogsLabel _$GogsLabelFromJson(Map<String, dynamic> json) => GogsLabel()
   ..name = json['name'] as String?
   ..color = json['color'] as String?;
 
 Map<String, dynamic> _$GogsLabelToJson(GogsLabel instance) => <String, dynamic>{
-      'name': instance.name,
-      'color': instance.color,
-    };
+  'name': instance.name,
+  'color': instance.color,
+};

@@ -7,7 +7,7 @@ part of 'gitlab.dart';
 // **************************************************************************
 
 GitlabUser _$GitlabUserFromJson(Map<String, dynamic> json) => GitlabUser()
-  ..id = json['id'] as int?
+  ..id = (json['id'] as num?)?.toInt()
   ..username = json['username'] as String?
   ..name = json['name'] as String?
   ..avatarUrl = json['avatar_url'] as String?
@@ -15,7 +15,7 @@ GitlabUser _$GitlabUserFromJson(Map<String, dynamic> json) => GitlabUser()
   ..createdAt = json['created_at'] == null
       ? null
       : DateTime.parse(json['created_at'] as String)
-  ..accessLevel = json['access_level'] as int?;
+  ..accessLevel = (json['access_level'] as num?)?.toInt();
 
 Map<String, dynamic> _$GitlabUserToJson(GitlabUser instance) =>
     <String, dynamic>{
@@ -29,7 +29,7 @@ Map<String, dynamic> _$GitlabUserToJson(GitlabUser instance) =>
     };
 
 GitlabGroup _$GitlabGroupFromJson(Map<String, dynamic> json) => GitlabGroup()
-  ..id = json['id'] as int?
+  ..id = (json['id'] as num?)?.toInt()
   ..path = json['path'] as String?
   ..name = json['name'] as String?
   ..avatarUrl = json['avatar_url'] as String?
@@ -53,9 +53,7 @@ GitlabTodoProject _$GitlabTodoProjectFromJson(Map<String, dynamic> json) =>
       ..pathWithNamespace = json['path_with_namespace'] as String?;
 
 Map<String, dynamic> _$GitlabTodoProjectToJson(GitlabTodoProject instance) =>
-    <String, dynamic>{
-      'path_with_namespace': instance.pathWithNamespace,
-    };
+    <String, dynamic>{'path_with_namespace': instance.pathWithNamespace};
 
 GitlabTodo _$GitlabTodoFromJson(Map<String, dynamic> json) => GitlabTodo()
   ..author = json['author'] == null
@@ -81,8 +79,8 @@ Map<String, dynamic> _$GitlabTodoToJson(GitlabTodo instance) =>
 
 GitlabTodoTarget _$GitlabTodoTargetFromJson(Map<String, dynamic> json) =>
     GitlabTodoTarget()
-      ..iid = json['iid'] as int?
-      ..projectId = json['project_id'] as int?
+      ..iid = (json['iid'] as num?)?.toInt()
+      ..projectId = (json['project_id'] as num?)?.toInt()
       ..title = json['title'] as String?
       ..author = json['author'] == null
           ? null
@@ -123,29 +121,31 @@ Map<String, dynamic> _$GitlabIssueNoteToJson(GitlabIssueNote instance) =>
 
 GitlabProject _$GitlabProjectFromJson(Map<String, dynamic> json) =>
     GitlabProject()
-      ..id = json['id'] as int?
+      ..id = (json['id'] as num?)?.toInt()
       ..name = json['name'] as String?
       ..avatarUrl = json['avatar_url'] as String?
       ..description = json['description'] as String?
-      ..starCount = json['star_count'] as int?
-      ..forksCount = json['forks_count'] as int?
+      ..starCount = (json['star_count'] as num?)?.toInt()
+      ..forksCount = (json['forks_count'] as num?)?.toInt()
       ..visibility = json['visibility'] as String?
       ..readmeUrl = json['readme_url'] as String?
       ..webUrl = json['web_url'] as String?
       ..namespace = json['namespace'] == null
           ? null
           : GitlabProjectNamespace.fromJson(
-              json['namespace'] as Map<String, dynamic>)
+              json['namespace'] as Map<String, dynamic>,
+            )
       ..owner = json['owner'] == null
           ? null
           : GitlabUser.fromJson(json['owner'] as Map<String, dynamic>)
       ..issuesEnabled = json['issues_enabled'] as bool?
-      ..openIssuesCount = json['open_issues_count'] as int?
+      ..openIssuesCount = (json['open_issues_count'] as num?)?.toInt()
       ..mergeRequestsEnabled = json['merge_requests_enabled'] as bool?
       ..statistics = json['statistics'] == null
           ? null
           : GitlabProjectStatistics.fromJson(
-              json['statistics'] as Map<String, dynamic>)
+              json['statistics'] as Map<String, dynamic>,
+            )
       ..lastActivityAt = json['last_activity_at'] == null
           ? null
           : DateTime.parse(json['last_activity_at'] as String)
@@ -181,39 +181,37 @@ GitlabProjectBadge _$GitlabProjectBadgeFromJson(Map<String, dynamic> json) =>
       ..renderedImageUrl = json['rendered_image_url'] as String?;
 
 Map<String, dynamic> _$GitlabProjectBadgeToJson(GitlabProjectBadge instance) =>
-    <String, dynamic>{
-      'rendered_image_url': instance.renderedImageUrl,
-    };
+    <String, dynamic>{'rendered_image_url': instance.renderedImageUrl};
 
 GitlabProjectStatistics _$GitlabProjectStatisticsFromJson(
-        Map<String, dynamic> json) =>
-    GitlabProjectStatistics()
-      ..commitCount = json['commit_count'] as int?
-      ..repositorySize = json['repository_size'] as int?;
+  Map<String, dynamic> json,
+) => GitlabProjectStatistics()
+  ..commitCount = (json['commit_count'] as num?)?.toInt()
+  ..repositorySize = (json['repository_size'] as num?)?.toInt();
 
 Map<String, dynamic> _$GitlabProjectStatisticsToJson(
-        GitlabProjectStatistics instance) =>
-    <String, dynamic>{
-      'commit_count': instance.commitCount,
-      'repository_size': instance.repositorySize,
-    };
+  GitlabProjectStatistics instance,
+) => <String, dynamic>{
+  'commit_count': instance.commitCount,
+  'repository_size': instance.repositorySize,
+};
 
 GitlabProjectNamespace _$GitlabProjectNamespaceFromJson(
-        Map<String, dynamic> json) =>
-    GitlabProjectNamespace()
-      ..id = json['id'] as int?
-      ..name = json['name'] as String?
-      ..path = json['path'] as String?
-      ..kind = json['kind'] as String?;
+  Map<String, dynamic> json,
+) => GitlabProjectNamespace()
+  ..id = (json['id'] as num?)?.toInt()
+  ..name = json['name'] as String?
+  ..path = json['path'] as String?
+  ..kind = json['kind'] as String?;
 
 Map<String, dynamic> _$GitlabProjectNamespaceToJson(
-        GitlabProjectNamespace instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'path': instance.path,
-      'kind': instance.kind,
-    };
+  GitlabProjectNamespace instance,
+) => <String, dynamic>{
+  'id': instance.id,
+  'name': instance.name,
+  'path': instance.path,
+  'kind': instance.kind,
+};
 
 GitlabTreeItem _$GitlabTreeItemFromJson(Map<String, dynamic> json) =>
     GitlabTreeItem(
@@ -233,9 +231,7 @@ GitlabBlob _$GitlabBlobFromJson(Map<String, dynamic> json) =>
     GitlabBlob()..content = json['content'] as String?;
 
 Map<String, dynamic> _$GitlabBlobToJson(GitlabBlob instance) =>
-    <String, dynamic>{
-      'content': instance.content,
-    };
+    <String, dynamic>{'content': instance.content};
 
 GitlabEvent _$GitlabEventFromJson(Map<String, dynamic> json) => GitlabEvent()
   ..author = json['author'] == null
@@ -259,7 +255,7 @@ GitlabEventNote _$GitlabEventNoteFromJson(Map<String, dynamic> json) =>
     GitlabEventNote()
       ..body = json['body'] as String?
       ..noteableType = json['noteable_type'] as String?
-      ..noteableIid = json['noteable_iid'] as int?;
+      ..noteableIid = (json['noteable_iid'] as num?)?.toInt();
 
 Map<String, dynamic> _$GitlabEventNoteToJson(GitlabEventNote instance) =>
     <String, dynamic>{
@@ -302,17 +298,18 @@ Map<String, dynamic> _$GitlabDiffToJson(GitlabDiff instance) =>
 
 GitlabIssue _$GitlabIssueFromJson(Map<String, dynamic> json) => GitlabIssue()
   ..title = json['title'] as String?
-  ..iid = json['iid'] as int?
-  ..projectId = json['project_id'] as int?
+  ..iid = (json['iid'] as num?)?.toInt()
+  ..projectId = (json['project_id'] as num?)?.toInt()
   ..author = json['author'] == null
       ? null
       : GitlabUser.fromJson(json['author'] as Map<String, dynamic>)
-  ..userNotesCount = json['user_notes_count'] as int?
+  ..userNotesCount = (json['user_notes_count'] as num?)?.toInt()
   ..updatedAt = json['updated_at'] == null
       ? null
       : DateTime.parse(json['updated_at'] as String)
-  ..labels =
-      (json['labels'] as List<dynamic>?)?.map((e) => e as String).toList();
+  ..labels = (json['labels'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList();
 
 Map<String, dynamic> _$GitlabIssueToJson(GitlabIssue instance) =>
     <String, dynamic>{
@@ -345,7 +342,4 @@ GitlabBranch _$GitlabBranchFromJson(Map<String, dynamic> json) => GitlabBranch()
   ..merged = json['merged'] as bool?;
 
 Map<String, dynamic> _$GitlabBranchToJson(GitlabBranch instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'merged': instance.merged,
-    };
+    <String, dynamic>{'name': instance.name, 'merged': instance.merged};

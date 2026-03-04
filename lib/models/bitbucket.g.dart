@@ -6,15 +6,12 @@ part of 'bitbucket.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BbPagination _$BbPaginationFromJson(Map<String, dynamic> json) => BbPagination(
-      values: json['values'] as List<dynamic>,
-    )..next = json['next'] as String?;
+BbPagination _$BbPaginationFromJson(Map<String, dynamic> json) =>
+    BbPagination(values: json['values'] as List<dynamic>)
+      ..next = json['next'] as String?;
 
 Map<String, dynamic> _$BbPaginationToJson(BbPagination instance) =>
-    <String, dynamic>{
-      'next': instance.next,
-      'values': instance.values,
-    };
+    <String, dynamic>{'next': instance.next, 'values': instance.values};
 
 BbRepoOwner _$BbRepoOwnerFromJson(Map<String, dynamic> json) => BbRepoOwner()
   ..nickname = json['nickname'] as String?
@@ -43,15 +40,15 @@ BbUser _$BbUserFromJson(Map<String, dynamic> json) => BbUser()
   ..accountId = json['account_id'] as String?;
 
 Map<String, dynamic> _$BbUserToJson(BbUser instance) => <String, dynamic>{
-      'nickname': instance.nickname,
-      'display_name': instance.displayName,
-      'type': instance.type,
-      'links': instance.links,
-      'username': instance.username,
-      'is_staff': instance.isStaff,
-      'created_on': instance.createdOn?.toIso8601String(),
-      'account_id': instance.accountId,
-    };
+  'nickname': instance.nickname,
+  'display_name': instance.displayName,
+  'type': instance.type,
+  'links': instance.links,
+  'username': instance.username,
+  'is_staff': instance.isStaff,
+  'created_on': instance.createdOn?.toIso8601String(),
+  'account_id': instance.accountId,
+};
 
 BbRepo _$BbRepoFromJson(Map<String, dynamic> json) => BbRepo()
   ..name = json['name'] as String?
@@ -60,7 +57,7 @@ BbRepo _$BbRepoFromJson(Map<String, dynamic> json) => BbRepo()
       : BbRepoOwner.fromJson(json['owner'] as Map<String, dynamic>)
   ..website = json['website'] as String?
   ..language = json['language'] as String?
-  ..size = json['size'] as int?
+  ..size = (json['size'] as num?)?.toInt()
   ..type = json['type'] as String?
   ..isPrivate = json['is_private'] as bool?
   ..createdOn = json['created_on'] == null
@@ -78,21 +75,21 @@ BbRepo _$BbRepoFromJson(Map<String, dynamic> json) => BbRepo()
   ..links = json['links'] as Map<String, dynamic>?;
 
 Map<String, dynamic> _$BbRepoToJson(BbRepo instance) => <String, dynamic>{
-      'name': instance.name,
-      'owner': instance.owner,
-      'website': instance.website,
-      'language': instance.language,
-      'size': instance.size,
-      'type': instance.type,
-      'is_private': instance.isPrivate,
-      'created_on': instance.createdOn?.toIso8601String(),
-      'updated_on': instance.updatedOn?.toIso8601String(),
-      'description': instance.description,
-      'full_name': instance.fullName,
-      'slug': instance.slug,
-      'mainbranch': instance.mainbranch,
-      'links': instance.links,
-    };
+  'name': instance.name,
+  'owner': instance.owner,
+  'website': instance.website,
+  'language': instance.language,
+  'size': instance.size,
+  'type': instance.type,
+  'is_private': instance.isPrivate,
+  'created_on': instance.createdOn?.toIso8601String(),
+  'updated_on': instance.updatedOn?.toIso8601String(),
+  'description': instance.description,
+  'full_name': instance.fullName,
+  'slug': instance.slug,
+  'mainbranch': instance.mainbranch,
+  'links': instance.links,
+};
 
 BbRepoMainbranch _$BbRepoMainbranchFromJson(Map<String, dynamic> json) =>
     BbRepoMainbranch()
@@ -100,24 +97,19 @@ BbRepoMainbranch _$BbRepoMainbranchFromJson(Map<String, dynamic> json) =>
       ..name = json['name'] as String?;
 
 Map<String, dynamic> _$BbRepoMainbranchToJson(BbRepoMainbranch instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'name': instance.name,
-    };
+    <String, dynamic>{'type': instance.type, 'name': instance.name};
 
-BbTree _$BbTreeFromJson(Map<String, dynamic> json) => BbTree(
-      type: json['type'] as String,
-      path: json['path'] as String,
-    )
-      ..size = json['size'] as int?
+BbTree _$BbTreeFromJson(Map<String, dynamic> json) =>
+    BbTree(type: json['type'] as String, path: json['path'] as String)
+      ..size = (json['size'] as num?)?.toInt()
       ..links = json['links'] as Map<String, dynamic>?;
 
 Map<String, dynamic> _$BbTreeToJson(BbTree instance) => <String, dynamic>{
-      'type': instance.type,
-      'path': instance.path,
-      'size': instance.size,
-      'links': instance.links,
-    };
+  'type': instance.type,
+  'path': instance.path,
+  'size': instance.size,
+  'links': instance.links,
+};
 
 BbCommit _$BbCommitFromJson(Map<String, dynamic> json) => BbCommit()
   ..message = json['message'] as String?
@@ -128,11 +120,11 @@ BbCommit _$BbCommitFromJson(Map<String, dynamic> json) => BbCommit()
       : BbCommitAuthor.fromJson(json['author'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$BbCommitToJson(BbCommit instance) => <String, dynamic>{
-      'message': instance.message,
-      'date': instance.date?.toIso8601String(),
-      'hash': instance.hash,
-      'author': instance.author,
-    };
+  'message': instance.message,
+  'date': instance.date?.toIso8601String(),
+  'hash': instance.hash,
+  'author': instance.author,
+};
 
 BbCommitAuthor _$BbCommitAuthorFromJson(Map<String, dynamic> json) =>
     BbCommitAuthor()
@@ -142,10 +134,7 @@ BbCommitAuthor _$BbCommitAuthorFromJson(Map<String, dynamic> json) =>
           : BbRepoOwner.fromJson(json['user'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$BbCommitAuthorToJson(BbCommitAuthor instance) =>
-    <String, dynamic>{
-      'raw': instance.raw,
-      'user': instance.user,
-    };
+    <String, dynamic>{'raw': instance.raw, 'user': instance.user};
 
 BbIssues _$BbIssuesFromJson(Map<String, dynamic> json) => BbIssues()
   ..priority = json['priority'] as String?
@@ -163,14 +152,14 @@ BbIssues _$BbIssuesFromJson(Map<String, dynamic> json) => BbIssues()
   ..links = json['links'] as Map<String, dynamic>?;
 
 Map<String, dynamic> _$BbIssuesToJson(BbIssues instance) => <String, dynamic>{
-      'priority': instance.priority,
-      'state': instance.state,
-      'repository': instance.repository,
-      'title': instance.title,
-      'reporter': instance.reporter,
-      'created_on': instance.createdOn?.toIso8601String(),
-      'links': instance.links,
-    };
+  'priority': instance.priority,
+  'state': instance.state,
+  'repository': instance.repository,
+  'title': instance.title,
+  'reporter': instance.reporter,
+  'created_on': instance.createdOn?.toIso8601String(),
+  'links': instance.links,
+};
 
 BbPulls _$BbPullsFromJson(Map<String, dynamic> json) => BbPulls()
   ..description = json['description'] as String?
@@ -184,12 +173,12 @@ BbPulls _$BbPullsFromJson(Map<String, dynamic> json) => BbPulls()
       : DateTime.parse(json['created_on'] as String);
 
 Map<String, dynamic> _$BbPullsToJson(BbPulls instance) => <String, dynamic>{
-      'description': instance.description,
-      'author': instance.author,
-      'title': instance.title,
-      'links': instance.links,
-      'created_on': instance.createdOn?.toIso8601String(),
-    };
+  'description': instance.description,
+  'author': instance.author,
+  'title': instance.title,
+  'links': instance.links,
+  'created_on': instance.createdOn?.toIso8601String(),
+};
 
 BbCommentContent _$BbCommentContentFromJson(Map<String, dynamic> json) =>
     BbCommentContent()
@@ -215,17 +204,17 @@ BbComment _$BbCommentFromJson(Map<String, dynamic> json) => BbComment()
       : BbRepoOwner.fromJson(json['user'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$BbCommentToJson(BbComment instance) => <String, dynamic>{
-      'created_on': instance.createdOn,
-      'updated_on': instance.updatedOn,
-      'content': instance.content,
-      'user': instance.user,
-    };
+  'created_on': instance.createdOn,
+  'updated_on': instance.updatedOn,
+  'content': instance.content,
+  'user': instance.user,
+};
 
 BbBranch _$BbBranchFromJson(Map<String, dynamic> json) => BbBranch()
   ..name = json['name'] as String?
   ..type = json['type'] as String?;
 
 Map<String, dynamic> _$BbBranchToJson(BbBranch instance) => <String, dynamic>{
-      'name': instance.name,
-      'type': instance.type,
-    };
+  'name': instance.name,
+  'type': instance.type,
+};
