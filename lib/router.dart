@@ -8,6 +8,7 @@ import 'package:git_touch/screens/bb_object.dart';
 import 'package:git_touch/screens/bb_pulls.dart';
 import 'package:git_touch/screens/bb_repo.dart';
 import 'package:git_touch/screens/bb_user.dart';
+import 'package:git_touch/screens/bookmarks.dart';
 import 'package:git_touch/screens/code_theme.dart';
 import 'package:git_touch/screens/ge_blob.dart';
 import 'package:git_touch/screens/ge_commit.dart';
@@ -92,6 +93,10 @@ final router = GoRouter(
         GoRoute(
           path: 'choose-code-theme',
           builder: (context, state) => CodeThemeScreen(),
+        ),
+        GoRoute(
+          path: 'bookmarks',
+          builder: (context, state) => const BookmarksScreen(),
         ),
         GoRoute(
           path: 'login',

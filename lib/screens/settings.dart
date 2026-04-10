@@ -31,6 +31,13 @@ class SettingsScreen extends StatelessWidget {
             mode: AntListMode.card,
             header: Text(AppLocalizations.of(context)!.system),
             children: [
+              AntListItem(
+                prefix: const Icon(Octicons.bookmark),
+                child: const Text('Bookmarks'),
+                onClick: () {
+                  context.push('/bookmarks');
+                },
+              ),
               if (auth.activeAccount!.platform == PlatformType.github) ...[
                 AntListItem(
                   child: Text(AppLocalizations.of(context)!.githubStatus),

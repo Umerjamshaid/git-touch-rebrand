@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:git_touch/app.dart';
 import 'package:git_touch/models/auth.dart';
+import 'package:git_touch/models/bookmarks.dart';
 import 'package:git_touch/models/code.dart';
 import 'package:git_touch/models/notification.dart';
 import 'package:git_touch/models/theme.dart';
@@ -19,10 +20,12 @@ void main() async {
       final themeModel = ThemeModel();
       final authModel = AuthModel();
       final codeModel = CodeModel();
+      final bookmarksModel = BookmarksModel();
       await Future.wait([
         themeModel.init(),
         authModel.init(),
         codeModel.init(),
+        bookmarksModel.init(),
       ]);
 
       runApp(MultiProvider(
@@ -31,6 +34,7 @@ void main() async {
           ChangeNotifierProvider(create: (context) => themeModel),
           ChangeNotifierProvider(create: (context) => authModel),
           ChangeNotifierProvider(create: (context) => codeModel),
+          ChangeNotifierProvider(create: (context) => bookmarksModel),
         ],
         child: const MyApp(),
       ));
