@@ -585,4 +585,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get ok => 'ОК';
+
+  @override
+  String get confirm => 'Подтвердить';
 }

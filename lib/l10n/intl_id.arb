@@ -346,5 +346,17 @@
   "news": "Berita",
   "@news": {
     "description": "The News tab"
+  },
+  "cancel": "Batal",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "Konfirmasi",
+  "@confirm": {
+    "description": "Confirm button label"
   }
 }

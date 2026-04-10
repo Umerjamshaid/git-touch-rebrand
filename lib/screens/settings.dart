@@ -109,8 +109,7 @@ class SettingsScreen extends StatelessWidget {
                         onTap: (_) async {
                           final res = await theme.showConfirm(
                             context,
-                            const Text(
-                                'The app will reload to make the language setting take effect'),
+                            Text(AppLocalizations.of(context)!.reloadMessage),
                           );
                           if (res == true && theme.locale != key) {
                             await theme.setLocale(key);

@@ -584,6 +584,15 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Confirm';
 }
 
 /// The translations for Norwegian Bokmål, as used in Norway (`nb_NO`).
@@ -842,4 +851,13 @@ class AppLocalizationsNbNo extends AppLocalizationsNb {
 
   @override
   String get fontStyle => 'SKRIFTSTIL';
+
+  @override
+  String get cancel => 'Avbryt';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Bekreft';
 }

@@ -346,5 +346,17 @@
   "followSystem": "System folgen",
   "@followSystem": {
     "description": "follow systems setting"
+  },
+  "cancel": "Abbrechen",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "Bestätigen",
+  "@confirm": {
+    "description": "Confirm button label"
   }
 }

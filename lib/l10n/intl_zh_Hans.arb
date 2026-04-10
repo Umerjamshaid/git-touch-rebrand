@@ -346,5 +346,17 @@
   "news": "新闻",
   "@news": {
     "description": "The News tab"
+  },
+  "cancel": "取消",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "确认",
+  "@confirm": {
+    "description": "Confirm button label"
   }
 }

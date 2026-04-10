@@ -1127,6 +1127,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No text to be shown here'**
   String get blankDiff;
+
+  /// Cancel button label
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// OK button label
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// Confirm button label
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
 }
 
 class _AppLocalizationsDelegate

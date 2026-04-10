@@ -346,5 +346,17 @@
   "news": "ニュース",
   "@news": {
     "description": "The News tab"
+  },
+  "cancel": "キャンセル",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "確認",
+  "@confirm": {
+    "description": "Confirm button label"
   }
 }

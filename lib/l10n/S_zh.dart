@@ -584,6 +584,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Confirm';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -841,6 +850,15 @@ class AppLocalizationsZhHans extends AppLocalizationsZh {
 
   @override
   String get fontStyle => '字体样式';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => '确认';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -1098,4 +1116,13 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
 
   @override
   String get fontStyle => '字体样式';
+
+  @override
+  String get cancel => '取消';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => '確認';
 }

@@ -584,4 +584,13 @@ class AppLocalizationsSi extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'අවලංගු කරන්න';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'තහවුරු කරන්න';
 }

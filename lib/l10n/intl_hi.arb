@@ -174,5 +174,17 @@
   "fontSize": "फॉण्ट आकार",
   "@fontSize": {},
   "fontStyle": "फॉण्ट प्रकार",
-  "@fontStyle": {}
+  "@fontStyle": {},
+  "cancel": "रद्द करें",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "पुष्टि करें",
+  "@confirm": {
+    "description": "Confirm button label"
+  }
 }

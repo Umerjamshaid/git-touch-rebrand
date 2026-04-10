@@ -584,4 +584,13 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'Mégse';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Megerősítés';
 }
