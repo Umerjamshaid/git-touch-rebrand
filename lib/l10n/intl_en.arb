@@ -848,5 +848,17 @@
   "blankDiff": "No text to be shown here",
   "@blankDiff": {
     "description": "text to show for a blank diff"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button label"
   }
 }

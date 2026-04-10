@@ -584,4 +584,13 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'Batal';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Konfirmasi';
 }

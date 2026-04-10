@@ -175,10 +175,10 @@ class ThemeModel with ChangeNotifier {
               onPressed: () {
                 Navigator.pop(context, false);
               },
-              child: const Text('cancel'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             CupertinoDialogAction(
-              child: const Text('OK'),
+              child: Text(AppLocalizations.of(context)!.ok),
               onPressed: () {
                 Navigator.pop(context, true);
               },
@@ -223,7 +223,7 @@ class ThemeModel with ChangeNotifier {
                       horizontal: 16.0,
                       vertical: 5.0,
                     ),
-                    child: const Text('Cancel'),
+                    child: Text(AppLocalizations.of(context)!.cancel),
                   ),
                   CupertinoButton(
                     onPressed: () {
@@ -234,7 +234,7 @@ class ThemeModel with ChangeNotifier {
                       horizontal: 16.0,
                       vertical: 5.0,
                     ),
-                    child: const Text('Confirm'),
+                    child: Text(AppLocalizations.of(context)!.confirm),
                   )
                 ],
               ),

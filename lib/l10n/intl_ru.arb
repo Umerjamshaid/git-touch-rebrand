@@ -286,5 +286,17 @@
   "news": "Новости",
   "@news": {
     "description": "The News tab"
+  },
+  "cancel": "Отмена",
+  "@cancel": {
+    "description": "Cancel button label"
+  },
+  "ok": "ОК",
+  "@ok": {
+    "description": "OK button label"
+  },
+  "confirm": "Подтвердить",
+  "@confirm": {
+    "description": "Confirm button label"
   }
 }

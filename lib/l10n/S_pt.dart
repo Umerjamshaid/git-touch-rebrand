@@ -585,6 +585,15 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get blankDiff => 'No text to be shown here';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Confirmar';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -844,4 +853,13 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get fontStyle => 'ESTILO DA FONTE';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get confirm => 'Confirmar';
 }
