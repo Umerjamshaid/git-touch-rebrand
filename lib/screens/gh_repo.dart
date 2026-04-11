@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:git_touch/l10n/S.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:git_touch/models/auth.dart';
+import 'package:git_touch/models/bookmarks.dart';
 import 'package:git_touch/models/theme.dart';
 import 'package:git_touch/scaffolds/refresh_stateful.dart';
 import 'package:git_touch/utils/utils.dart';
@@ -89,9 +90,32 @@ class GhRepoScreen extends StatelessWidget {
       },
       actionBuilder: (data, _) {
         final repo = data.item1!;
+        final bm = context.read<BookmarksModel>();
+        final repoUrl = '/github/$owner/$name';
+        final bookmarked = bm.isBookmarked(repoUrl);
         return ActionButton(
           title: AppLocalizations.of(context)!.repositoryActions,
-          items: ActionItem.getUrlActions(repo.url),
+          items: [
+            ActionItem(
+              text: bookmarked ? 'Remove Bookmark' : 'Bookmark',
+              onTap: (_) async {
+                if (bookmarked) {
+                  await bm.removeBookmark(repoUrl);
+                } else {
+                  await bm.addBookmark(BookmarkItem(
+                    type: 'repo',
+                    owner: owner,
+                    name: name,
+                    avatarUrl: repo.owner!.avatarUrl,
+                    description: repo.description,
+                    url: repoUrl,
+                    platform: 'github',
+                  ));
+                }
+              },
+            ),
+            ...ActionItem.getUrlActions(repo.url),
+          ],
         );
       },
       bodyBuilder: (data, setData) {

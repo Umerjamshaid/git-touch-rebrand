@@ -28,6 +28,7 @@ class StorageKeys {
   static const iMarkdown = 'markdown';
   static const iDefaultAccount = 'default-account';
   static const locale = 'locale';
+  static const bookmarks = 'bookmarks';
 
   static getDefaultStartTabKey(String platform) =>
       'default-start-tab-$platform';
